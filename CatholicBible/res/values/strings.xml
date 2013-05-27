@@ -3,6 +3,6 @@
 
     <string name="app_name">CatholicBible</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">It was the best of time! It was the worst of time!\nIt was the age of wisdom! It was the age of foolishness!\nIt was the spring of hope!</string>
+    <string name="hello_world">It was the best of time! It was the worst of time!\nIt was the age of wisdom! It was the age of foolishness!\n</string>
 
 </resources>
