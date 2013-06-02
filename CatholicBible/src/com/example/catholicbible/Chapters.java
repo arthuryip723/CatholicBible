@@ -18,5 +18,7 @@ public class Chapters extends Activity {
 		getMenuInflater().inflate(R.menu.chapters, menu);
 		return true;
 	}
+	
+	// add a line here
 
 }
