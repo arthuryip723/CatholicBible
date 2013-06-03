@@ -26,6 +26,10 @@
             android:name="com.example.catholicbible.Chapters"
             android:label="@string/title_activity_chapters" >
         </activity>
+        <activity
+            android:name="com.example.catholicbible.Verses"
+            android:label="@string/title_activity_verses" >
+        </activity>
     </application>
 
 </manifest>

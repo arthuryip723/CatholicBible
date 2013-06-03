@@ -2,6 +2,7 @@ package com.example.catholicbible;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,7 +21,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		gridView = (GridView) findViewById(R.id.gridView1);
+		gridView = (GridView) findViewById(R.id.booksGridView);
 
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, books);
@@ -34,6 +35,12 @@ public class MainActivity extends Activity {
 					long id) {
 				// TODO Auto-generated method stub
 				// Switch to another view
+				//Intent intent = new Intent(MainActivity.this, Chapters.class);
+				Intent intent = new Intent(getApplicationContext(), Chapters.class);
+				//intent.putExtra("BOOK", "Mathew");
+				Object item = parent.getItemAtPosition(position);
+				intent.putExtra("BOOK", item.toString());
+				startActivity(intent);
 			}
 			
 		});

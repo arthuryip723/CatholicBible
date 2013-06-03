@@ -2,14 +2,71 @@ package com.example.catholicbible;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class Chapters extends Activity {
+	GridView gridView;
+
+	static final String[] chapters = new String[] { "chapter1", "chapter2", "chapter3",
+			"chapter4", "chapter5", "chapter6" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chapters);
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			String value = extras.getString("BOOK");
+			TextView view = (TextView) findViewById(R.id.chaptersView);
+			view.setText(value);
+		}
+
+		Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);
+		backToBooksBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				/*
+				 * Intent intent = new Intent(Chapters.this,
+				 * MainActivity.class);
+				 * intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				 * startActivity(intent);
+				 */
+				finish();
+			}
+		});
+		
+		gridView = (GridView) findViewById(R.id.chaptersGridView);
+		
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, chapters);
+		
+		gridView.setAdapter(adapter);
+		
+		gridView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View v, int position,
+					long id) {
+				// TODO Auto-generated method stub
+				//Intent intent = new Intent(Chapters.this, Verses.class);
+				Intent intent = new Intent(getApplicationContext(), Verses.class);
+				Object item = parent.getItemAtPosition(position);
+				intent.putExtra("BOOK", item.toString());
+				startActivity(intent);
+			}
+			
+		});
 	}
 
 	@Override
@@ -18,7 +75,7 @@ public class Chapters extends Activity {
 		getMenuInflater().inflate(R.menu.chapters, menu);
 		return true;
 	}
-	
+
 	// add a line here
 
 }
