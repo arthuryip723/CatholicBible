@@ -28,6 +28,7 @@ public class Chapters extends Activity {
 			String value = extras.getString("BOOK");
 			TextView view = (TextView) findViewById(R.id.chaptersView);
 			view.setText(value);
+			view.setText(((MyApp)this.getApplication()).foo);
 		}
 
 		Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);
