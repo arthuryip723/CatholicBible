@@ -13,7 +13,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class Chapters extends Activity {
+public class Chapters extends CBActivity {
 	GridView gridView;
 
 	static final String[] chapters = new String[] { "chapter1", "chapter2", "chapter3",
@@ -28,7 +28,7 @@ public class Chapters extends Activity {
 			String value = extras.getString("BOOK");
 			TextView view = (TextView) findViewById(R.id.chaptersView);
 			view.setText(value);
-			view.setText(((MyApp)this.getApplication()).foo);
+			view.setText(((CBApplication)this.getApplication()).foo);
 		}
 
 		Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);

@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class Verses extends Activity {
+public class Verses extends CBActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

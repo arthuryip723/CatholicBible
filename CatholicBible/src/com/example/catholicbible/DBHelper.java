@@ -5,13 +5,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
 	static final String dbName = "CatholicBibleDB";
 	static final String booksTable = "Books";
 	static final String chaptersTable = "Chapters";
 	static final String versesTable = "Verses";
 
-	public DatabaseHelper(Context context, String name, CursorFactory factory,
+	public DBHelper(Context context, String name, CursorFactory factory,
 			int version) {
 		super(context, name, factory, version);
 		// TODO Auto-generated constructor stub

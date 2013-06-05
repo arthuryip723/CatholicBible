@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class MainActivity extends Activity {
+public class MainActivity extends CBActivity {
 	GridView gridView;
 
 	static final String[] books = new String[] { "book1", "book2", "book3",
