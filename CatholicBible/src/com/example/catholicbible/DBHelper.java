@@ -28,5 +28,15 @@ public class DBHelper extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public void getChaptersByBook()
+	{
+		
+	}
+	
+	public void getVersesByBookAndChapter()
+	{
+		
+	}
 
 }
