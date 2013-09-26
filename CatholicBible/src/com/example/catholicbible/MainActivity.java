@@ -23,7 +23,7 @@ public class MainActivity extends CBActivity {
 
 		gridView = (GridView) findViewById(R.id.booksGridView);
 		
-		((CBApplication)getApplication()).getDBHelper();
+		();
 		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, books);
