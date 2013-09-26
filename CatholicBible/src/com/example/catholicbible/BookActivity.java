@@ -13,7 +13,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class Chapters extends CBActivity {
+public class BookActivity extends CBActivity {
 	GridView gridView;
 
 	static final String[] chapters = new String[] { "chapter1", "chapter2", "chapter3",
@@ -61,7 +61,7 @@ public class Chapters extends CBActivity {
 					long id) {
 				// TODO Auto-generated method stub
 				//Intent intent = new Intent(Chapters.this, Verses.class);
-				Intent intent = new Intent(getApplicationContext(), Verses.class);
+				Intent intent = new Intent(getApplicationContext(), ChapterActivity.class);
 				Object item = parent.getItemAtPosition(position);
 				intent.putExtra("BOOK", item.toString());
 				startActivity(intent);

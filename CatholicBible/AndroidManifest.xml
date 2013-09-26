@@ -24,11 +24,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.catholicbible.Chapters"
+            android:name="com.example.catholicbible.BookActivity"
             android:label="@string/title_activity_chapters" >
         </activity>
         <activity
-            android:name="com.example.catholicbible.Verses"
+            android:name="com.example.catholicbible.ChapterActivity"
             android:label="@string/title_activity_verses" >
         </activity>
     </application>
