@@ -1,12 +1,14 @@
 package com.example.catholicbible;
 
-import android.os.Bundle;
-import android.app.Activity;
+import java.util.List;
+
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ChapterActivity extends CBActivity {
 
@@ -14,6 +16,15 @@ public class ChapterActivity extends CBActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_verses);
+		
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			Chapter chapter = (Chapter)extras.getSerializable("CHAPTER");
+			TextView view = (TextView)findViewById(R.id.titleView);
+			view.setText(chapter.toString());
+			List<Verse> verses = getDataSource().getVerses(chapter.getId());
+			// Set the verses to the view
+		}
 
 		Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);
 		backToBooksBtn.setOnClickListener(new OnClickListener() {

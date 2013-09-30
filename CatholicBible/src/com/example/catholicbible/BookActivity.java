@@ -24,15 +24,28 @@ public class BookActivity extends CBActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chapters);
+		gridView = (GridView) findViewById(R.id.chaptersGridView);
+		
+		
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			String value = extras.getString("BOOK");
+			/*String value = extras.getString("BOOK");
 			TextView view = (TextView) findViewById(R.id.chaptersView);
 			view.setText(value);
 			view.setText(((CBApplication)this.getApplication()).foo);
 			
-			List<Chapter> chapters = getDataSource().getChapters(value);
-			// Set the chapters to the view;
+			List<Chapter> chapters = getDataSource().getChapters(value);*/
+			
+			Book book = (Book)extras.getSerializable("BOOK");
+			TextView view = (TextView) findViewById(R.id.titleView);
+			view.setText(book.toString());
+			
+			List<Chapter> chapters = getDataSource().getChapters(book.getId());
+			// Set the chapters to the view
+			ArrayAdapter<Chapter> adapter = new ArrayAdapter<Chapter>(this,
+					android.R.layout.simple_list_item_1, chapters);
+			gridView.setAdapter(adapter);
+			// Set onItemClick
 		}
 
 		Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);
@@ -66,8 +79,10 @@ public class BookActivity extends CBActivity {
 				// TODO Auto-generated method stub
 				//Intent intent = new Intent(Chapters.this, Verses.class);
 				Intent intent = new Intent(getApplicationContext(), ChapterActivity.class);
-				Object item = parent.getItemAtPosition(position);
-				intent.putExtra("BOOK", item.toString());
+				/*Object item = parent.getItemAtPosition(position);
+				intent.putExtra("BOOK", item.toString());*/
+				Chapter chapter = (Chapter)parent.getItemAtPosition(position);
+				intent.putExtra("CHAPTER", chapter);
 				startActivity(intent);
 			}
 			

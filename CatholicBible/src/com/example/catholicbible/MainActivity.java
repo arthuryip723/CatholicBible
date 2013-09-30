@@ -14,7 +14,7 @@ import android.widget.GridView;
 public class MainActivity extends CBActivity {
 	GridView gridView;
 
-	//private CBDataSource dataSource;
+	// private CBDataSource dataSource;
 
 	/*
 	 * static final String[] books = new String[] { "book1", "book2", "book3",
@@ -29,15 +29,14 @@ public class MainActivity extends CBActivity {
 		gridView = (GridView) findViewById(R.id.booksGridView);
 
 		// Get the datasource
-/*		if (dataSource == null) {
-			dataSource = getDataSource();
-		}
-*/
 		/*
+		 * if (dataSource == null) { dataSource = getDataSource(); }
+		 */
+		/**
 		 * Retrieve the books from the datasource. And put them in a collection.
 		 */
 
-		//List<Book> books = dataSource.getAllBooks();
+		// List<Book> books = dataSource.getAllBooks();
 		List<Book> books = getDataSource().getAllBooks();
 
 		ArrayAdapter<Book> adapter = new ArrayAdapter<Book>(this,
@@ -57,8 +56,10 @@ public class MainActivity extends CBActivity {
 				Intent intent = new Intent(getApplicationContext(),
 						BookActivity.class);
 				// intent.putExtra("BOOK", "Mathew");
-				Object item = parent.getItemAtPosition(position);
-				intent.putExtra("BOOK", item.toString());
+				// Object item = parent.getItemAtPosition(position);
+				// intent.putExtra("BOOK", item.toString());
+				Book book = (Book) parent.getItemAtPosition(position);
+				intent.putExtra("BOOK", book);
 				startActivity(intent);
 			}
 

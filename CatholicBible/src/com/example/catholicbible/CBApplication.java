@@ -1,11 +1,9 @@
 package com.example.catholicbible;
 
-import javax.sql.DataSource;
-
 import android.app.Application;
 
 public class CBApplication extends Application {
-	String foo = "Arthur";
+	//String foo = "Arthur";
 	private DBHelper helper = null;
 	//private DBHelper helper = new DBHelper(this);
 	private CBDataSource dataSource;
