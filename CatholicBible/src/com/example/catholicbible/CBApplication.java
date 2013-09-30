@@ -8,7 +8,7 @@ public class CBApplication extends Application {
 	String foo = "Arthur";
 	private DBHelper helper = null;
 	//private DBHelper helper = new DBHelper(this);
-	private BibleDataSource dataSource;
+	private CBDataSource dataSource;
 	
 	public DBHelper getDBHelper(){
 		if (helper == null) {
@@ -20,9 +20,9 @@ public class CBApplication extends Application {
 		//return null;
 	}
 	
-	public BibleDataSource getDataSource() {
+	public CBDataSource getDataSource() {
 		if (dataSource == null) {
-			dataSource = new BibleDataSource(this);
+			dataSource = new CBDataSource(this);
 			dataSource.open();
 		}
 		return dataSource;

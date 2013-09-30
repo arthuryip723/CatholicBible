@@ -1,17 +1,18 @@
 package com.example.catholicbible;
 
-import android.os.Bundle;
-import android.app.Activity;
+import java.util.List;
+
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class BookActivity extends CBActivity {
 	GridView gridView;
@@ -29,6 +30,9 @@ public class BookActivity extends CBActivity {
 			TextView view = (TextView) findViewById(R.id.chaptersView);
 			view.setText(value);
 			view.setText(((CBApplication)this.getApplication()).foo);
+			
+			List<Chapter> chapters = getDataSource().getChapters(value);
+			// Set the chapters to the view;
 		}
 
 		Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);

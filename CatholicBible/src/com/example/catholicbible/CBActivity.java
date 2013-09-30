@@ -8,7 +8,7 @@ public class CBActivity extends Activity {
 		//return null;
 	}
 	
-	public BibleDataSource getDataSource() {
+	public CBDataSource getDataSource() {
 		return ((CBApplication)getApplication()).getDataSource();
 	}
 }
