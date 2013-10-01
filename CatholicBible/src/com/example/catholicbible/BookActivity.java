@@ -15,7 +15,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 public class BookActivity extends CBActivity {
-	GridView gridView;
+	GridView chaptersView;
 
 	static final String[] chapters = new String[] { "chapter1", "chapter2",
 			"chapter3", "chapter4", "chapter5", "chapter6" };
@@ -23,8 +23,8 @@ public class BookActivity extends CBActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_chapters);
-		gridView = (GridView) findViewById(R.id.chaptersGridView);
+		setContentView(R.layout.activity_book);
+		chaptersView = (GridView) findViewById(R.id.chaptersView);
 
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
@@ -44,7 +44,7 @@ public class BookActivity extends CBActivity {
 			// Set the chapters to the view
 			ArrayAdapter<Chapter> adapter = new ArrayAdapter<Chapter>(this,
 					android.R.layout.simple_list_item_1, chapters);
-			gridView.setAdapter(adapter);
+			chaptersView.setAdapter(adapter);
 			// Set onItemClick
 		}
 
@@ -72,7 +72,7 @@ public class BookActivity extends CBActivity {
 		 * gridView.setAdapter(adapter);
 		 */
 
-		gridView.setOnItemClickListener(new OnItemClickListener() {
+		chaptersView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v,
