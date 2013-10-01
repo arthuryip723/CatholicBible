@@ -23,11 +23,17 @@ public class DBHelper extends SQLiteOpenHelper {
 	}
 
 	@Override
-	public void onCreate(SQLiteDatabase arg0) {
+	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
-		int i = 1;
-		String s = "my string";
-		String s1 = s + "Arthur";
+		db.execSQL("create table book(id integer primary key, name text);");
+		db.execSQL("insert into book(name) values('book 1');");
+		db.execSQL("insert into book(name) values('book 2');");
+		db.execSQL("create table chapter(id integer primary key, name text);");
+		db.execSQL("insert into book(name) values('chapter 1');");
+		db.execSQL("insert into book(name) values('chapter 2');");
+		db.execSQL("create table verse(id integer primary key, name text);");
+		db.execSQL("insert into verse(name) values('verse 1');");
+		db.execSQL("insert into verse(name) values('verse 2');");
 	}
 
 	@Override
