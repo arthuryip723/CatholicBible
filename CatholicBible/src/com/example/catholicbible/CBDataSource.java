@@ -10,10 +10,12 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class CBDataSource {
 	private SQLiteDatabase database;
-	private DBHelper dbHelper;
+	// private DBHelper dbHelper;
+	private AssetDBHelper dbHelper;
 
 	public CBDataSource(Context context) {
-		dbHelper = new DBHelper(context);
+		// dbHelper = new DBHelper(context);
+		dbHelper = new AssetDBHelper(context);
 	}
 
 	public void open() throws SQLException {
@@ -39,11 +41,9 @@ public class CBDataSource {
 		cursor.close();
 		return books;
 
-		/*
-		 * List<Book> books = new ArrayList<Book>(); Book b1 = new Book(1,
-		 * "Book 1"); Book b2 = new Book(2, "Book 2"); books.add(b1);
-		 * books.add(b2); return books;
-		 */
+		// List<Book> books = new ArrayList<Book>(); Book b1 = new Book(1,
+		// "Book 1"); Book b2 = new Book(2, "Book 2"); books.add(b1);
+		// books.add(b2); return books;
 	}
 
 	public List<Book> getOldTestament() {
@@ -56,17 +56,17 @@ public class CBDataSource {
 
 	public List<Chapter> getChapters(int bookId) {
 		// Mock some data here
-		/*
-		 * Chapter chapter1 = new Chapter(1, bookId, 1, "Chapter 1"); Chapter
-		 * chapter2 = new Chapter(2, bookId, 2, "Chapter 2"); List<Chapter>
-		 * chapters = new ArrayList<Chapter>(); chapters.add(chapter1);
-		 * chapters.add(chapter2); return chapters;
-		 */
+
+		// Chapter chapter1 = new Chapter(1, bookId, 1, "Chapter 1"); Chapter
+		// chapter2 = new Chapter(2, bookId, 2, "Chapter 2"); List<Chapter>
+		// chapters = new ArrayList<Chapter>(); chapters.add(chapter1);
+		// chapters.add(chapter2); return chapters;
+
 		List<Chapter> chapters = new ArrayList<Chapter>();
-		/*
-		 * Cursor cursor = database.query("chapter", null, "book_id=" + bookId,
-		 * null, null, null, null);
-		 */
+
+		// Cursor cursor = database.query("chapter", null, "book_id=" + bookId,
+		// null, null, null, null);
+
 		String[] args = { "" + bookId };
 		Cursor cursor = database.query("chapter", null, "book_id=?", args,
 				null, null, null);
@@ -87,18 +87,19 @@ public class CBDataSource {
 
 	public List<Verse> getVerses(int chapterId) {
 		// Mock some data here
-		/*
-		 * Verse v1 = new Verse(1, chapterId, 1, "Verse 1"); Verse v2 = new
-		 * Verse(2, chapterId, 2, "Verse 2"); List<Verse> verses = new
-		 * ArrayList<Verse>(); verses.add(v1); verses.add(v2); return verses;
-		 */
+
+		// Verse v1 = new Verse(1, chapterId, 1, "Verse 1"); Verse v2 = new
+		// Verse(2, chapterId, 2, "Verse 2"); List<Verse> verses = new
+		// ArrayList<Verse>(); verses.add(v1); verses.add(v2); return verses;
+
 		List<Verse> verses = new ArrayList<Verse>();
 		String[] args = { "" + chapterId };
 		Cursor cursor = database.query("verse", null, "chapter_id=?", args,
 				null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			Verse verse = new Verse(cursor.getInt(0), cursor.getInt(2), 0, cursor.getString(1));
+			Verse verse = new Verse(cursor.getInt(0), cursor.getInt(2), 0,
+					cursor.getString(1));
 			verses.add(verse);
 			cursor.moveToNext();
 		}
