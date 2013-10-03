@@ -18,18 +18,15 @@
             android:id="@+id/backToBooksBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Books" />
+            android:text="@string/books" />
 
         <Button
             android:id="@+id/backToChaptersBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chapters" />
+            android:text="@string/chapters" />
 
-    </LinearLayout><TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/titleView"

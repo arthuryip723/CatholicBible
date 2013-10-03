@@ -25,11 +25,11 @@
         </activity>
         <activity
             android:name="com.example.catholicbible.BookActivity"
-            android:label="@string/title_activity_chapters" >
+            android:label="@string/books" >
         </activity>
         <activity
             android:name="com.example.catholicbible.ChapterActivity"
-            android:label="@string/title_activity_verses" >
+            android:label="@string/chapters" >
         </activity>
     </application>
 

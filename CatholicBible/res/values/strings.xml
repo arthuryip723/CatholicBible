@@ -3,8 +3,10 @@
 
     <string name="app_name">CatholicBible</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">It was the best of time! It was the worst of time!\nIt was the age of wisdom! It was the age of foolishness!\n</string>
-    <string name="title_activity_chapters">Chapters</string>
-    <string name="title_activity_verses">Verses</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="books">Books</string>
+    <string name="chapters">Chapters</string>
+    <string name="verses">Verses</string>
+    <string name="catholic_bible">Catholic Bible</string>
 
 </resources>
