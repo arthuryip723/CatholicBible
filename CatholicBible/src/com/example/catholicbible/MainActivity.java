@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 
 public class MainActivity extends CBActivity {
-	GridView gridView;
+	GridView ntView, otView;
 
 	// private CBDataSource dataSource;
 
@@ -26,7 +26,7 @@ public class MainActivity extends CBActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		gridView = (GridView) findViewById(R.id.booksGridView);
+		ntView = (GridView) findViewById(R.id.ntGridView);
 
 		// Get the datasource
 		/*
@@ -42,9 +42,9 @@ public class MainActivity extends CBActivity {
 		ArrayAdapter<Book> adapter = new ArrayAdapter<Book>(this,
 				android.R.layout.simple_list_item_1, books);
 
-		gridView.setAdapter(adapter);
+		ntView.setAdapter(adapter);
 
-		gridView.setOnItemClickListener(new OnItemClickListener() {
+		ntView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v,

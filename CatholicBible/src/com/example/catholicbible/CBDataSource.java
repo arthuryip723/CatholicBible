@@ -47,11 +47,31 @@ public class CBDataSource {
 	}
 
 	public List<Book> getOldTestament() {
-		return null;
+		List<Book> books = new ArrayList<Book>();
+		Cursor cursor = database.query("book", null, null, null, null, null,
+				null);
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Book book = new Book(cursor.getInt(0), cursor.getString(1));
+			books.add(book);
+			cursor.moveToNext();
+		}
+		cursor.close();
+		return books;
 	}
 
 	public List<Book> getNewTestament() {
-		return null;
+		List<Book> books = new ArrayList<Book>();
+		Cursor cursor = database.query("book", null, null, null, null, null,
+				null);
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Book book = new Book(cursor.getInt(0), cursor.getString(1));
+			books.add(book);
+			cursor.moveToNext();
+		}
+		cursor.close();
+		return books;
 	}
 
 	public List<Chapter> getChapters(int bookId) {

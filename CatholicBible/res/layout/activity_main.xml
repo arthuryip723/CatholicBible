@@ -32,7 +32,13 @@
         android:text="@string/catholic_bible" />
 
     <GridView
-        android:id="@+id/booksGridView"
+        android:id="@+id/ntGridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3" >
+    </GridView>
+    <GridView
+        android:id="@+id/otGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:numColumns="3" >
