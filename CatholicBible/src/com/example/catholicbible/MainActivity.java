@@ -2,6 +2,7 @@ package com.example.catholicbible;
 
 import java.util.List;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -64,6 +65,12 @@ public class MainActivity extends CBActivity {
 			}
 
 		});
+//		ActionBar actionBar = getActionBar();
+//		actionBar.setSubtitle("mytest");
+//		actionBar.setTitle("vogella.com"); 
+//		actionBar.hide();
+//		// more stuff here...
+//		actionBar.show(); 
 	}
 
 	@Override
