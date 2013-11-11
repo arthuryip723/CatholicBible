@@ -9,7 +9,7 @@ public class Chapter implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private int bookId;
-	private int num;
+	private int index;
 	private String name;
 
 	public Chapter() {
@@ -17,11 +17,11 @@ public class Chapter implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Chapter(int id, int bookId, int num, String name) {
+	public Chapter(int id, int index, String name, int bookId) {
 		super();
 		this.id = id;
 		this.bookId = bookId;
-		this.num = num;
+		this.index = index;
 		this.name = name;
 	}
 
@@ -53,11 +53,11 @@ public class Chapter implements Serializable{
 		return name;
 	}
 
-	public int getNum() {
-		return num;
+	public int getIndex() {
+		return index;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setIndex(int index) {
+		this.index = index;
 	}
 }

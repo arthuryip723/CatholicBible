@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,35 +9,57 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ChapterActivity" >
 
-    <LinearLayout
+
+
+
+
+    
+<!--     <RelativeLayout 
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_alignParentTop="true"
+        android:gravity="center"> -->
+        <LinearLayout
+            android:id="@+id/header"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_alignParentTop="true"
+	        android:gravity="center" >
 
-        <Button
-            android:id="@+id/backToBooksBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/books" />
-
-        <Button
-            android:id="@+id/backToChaptersBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/chapters" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/titleView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
-
+		    <TextView
+		        android:id="@+id/titleView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/hello_world" />
+	        <Button
+	            android:id="@+id/backToBooksBtn"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/books" />
+	
+	        <Button
+	            android:id="@+id/backToChaptersBtn"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/chapters" />
+    	</LinearLayout>
+    <!-- </RelativeLayout> -->
+    
+    <!-- <ScrollView 
+        android:id="@+id/container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/header">
+        
+    </ScrollView> -->
+    
     <ListView
         android:id="@+id/versesView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/header" >
     </ListView>
 
-</LinearLayout>
+</RelativeLayout>

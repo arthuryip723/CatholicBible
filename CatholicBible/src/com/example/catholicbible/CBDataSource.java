@@ -48,7 +48,10 @@ public class CBDataSource {
 
 	public List<Book> getOldTestament() {
 		List<Book> books = new ArrayList<Book>();
-		Cursor cursor = database.query("book", null, null, null, null, null,
+		/*Cursor cursor = database.query("book", null, null, null, null, null,
+				null);*/
+		String[] args = {"1"};
+		Cursor cursor = database.query("book", null, "testament_id=?", args, null, null,
 				null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
@@ -62,7 +65,10 @@ public class CBDataSource {
 
 	public List<Book> getNewTestament() {
 		List<Book> books = new ArrayList<Book>();
-		Cursor cursor = database.query("book", null, null, null, null, null,
+		/*Cursor cursor = database.query("book", null, null, null, null, null,
+				null);*/
+		String[] args = {"2"};
+		Cursor cursor = database.query("book", null, "testament_id=?", args, null, null,
 				null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
@@ -92,8 +98,10 @@ public class CBDataSource {
 				null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			Chapter chapter = new Chapter(cursor.getInt(0), cursor.getInt(2),
-					0, cursor.getString(1));
+			/*Chapter chapter = new Chapter(cursor.getInt(0), cursor.getInt(2),
+					0, cursor.getString(1));*/
+			Chapter chapter = new Chapter(cursor.getInt(0), cursor.getInt(1),
+					cursor.getString(2), cursor.getInt(3));
 			chapters.add(chapter);
 			cursor.moveToNext();
 		}
