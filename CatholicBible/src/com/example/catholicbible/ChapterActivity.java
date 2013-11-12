@@ -5,15 +5,21 @@ import java.util.List;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ChapterActivity extends CBActivity {
 	ListView versesView;
+	TextView titleView;
+	Chapter chapter;
+	Book book;
+	ArrayAdapter<Verse> verseAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +29,22 @@ public class ChapterActivity extends CBActivity {
 
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			Chapter chapter = (Chapter) extras.getSerializable("CHAPTER");
-			TextView view = (TextView) findViewById(R.id.titleView);
-			view.setText(chapter.toString());
-			List<Verse> verses = getDataSource().getVerses(chapter.getId());
-			ArrayAdapter<Verse> adapter = new ArrayAdapter<Verse>(this,
+//			Chapter chapter = (Chapter) extras.getSerializable("CHAPTER");
+			chapter = (Chapter) extras.getSerializable("CHAPTER");
+			book = (Book) extras.getSerializable("BOOK");
+//			TextView view = (TextView) findViewById(R.id.titleView);
+//			view.setText(chapter.toString());
+			titleView = (TextView) findViewById(R.id.titleView);
+//			titleView.setText(chapter.toString());
+			titleView.setText(book.toString() + " " + chapter.toString());
+//			List<Verse> verses = getDataSource().getVerses(chapter.getId());
+			List<Verse> verses = getDataSource().getVerses(chapter);
+//			ArrayAdapter<Verse> adapter = new ArrayAdapter<Verse>(this,
+//					android.R.layout.simple_list_item_1, verses);
+//			versesView.setAdapter(adapter);
+			verseAdapter = new ArrayAdapter<Verse>(this,
 					android.R.layout.simple_list_item_1, verses);
-			versesView.setAdapter(adapter);
+			versesView.setAdapter(verseAdapter);
 			// Set the verses to the view
 		}
 
@@ -52,6 +67,44 @@ public class ChapterActivity extends CBActivity {
 				// finish();
 			}
 		});
+		
+		Button prevBtn = (Button) findViewById(R.id.prevBtn);
+		prevBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Chapter tempChapter = getDataSource().getPreviousChapter(chapter);
+				if (tempChapter != null) {
+					chapter = tempChapter;
+//					titleView.setText(chapter.toString());
+					titleView.setText(book.toString() + " " + chapter.toString());
+					List<Verse> verses = getDataSource().getVerses(chapter);
+					verseAdapter.clear();
+					verseAdapter.addAll(verses);
+				}
+			}
+		});
+		
+		Button nextBtn = (Button) findViewById(R.id.nextBtn);
+		nextBtn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+//				if (chapter.getIndex() < chapter.getMaxChapterIndexInBook()) {
+//					int nextIndex = chapter.getIndex() + 1;
+//					chapter = getDataSource().getChapterByBookIdAndChapterIndex(chapter.getBookId(), nextIndex);
+				Chapter tempChapter = getDataSource().getNextChapter(chapter);
+				if (tempChapter != null) {
+					chapter = tempChapter;
+					titleView.setText(book.toString() + " " + chapter.toString());
+					List<Verse> verses = getDataSource().getVerses(chapter);
+					verseAdapter.clear();
+					verseAdapter.addAll(verses);
+				}
+			}
+		});
 
 		Button backToChaptersBtn = (Button) findViewById(R.id.backToChaptersBtn);
 		backToChaptersBtn.setOnClickListener(new OnClickListener() {
@@ -70,5 +123,15 @@ public class ChapterActivity extends CBActivity {
 		getMenuInflater().inflate(R.menu.verses, menu);
 		return true;
 	}
-
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_settings:
+			Toast.makeText(this, "menu in chapter", Toast.LENGTH_SHORT)
+					.show();
+			break;
+		}
+		return true;
+	}
 }

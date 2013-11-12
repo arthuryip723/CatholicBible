@@ -5,6 +5,7 @@ import java.util.List;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -13,9 +14,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BookActivity extends CBActivity {
 	GridView chaptersView;
+	Book book;
 
 	static final String[] chapters = new String[] { "chapter1", "chapter2",
 			"chapter3", "chapter4", "chapter5", "chapter6" };
@@ -36,7 +39,8 @@ public class BookActivity extends CBActivity {
 			 * List<Chapter> chapters = getDataSource().getChapters(value);
 			 */
 
-			Book book = (Book) extras.getSerializable("BOOK");
+//			Book book = (Book) extras.getSerializable("BOOK");
+			book = (Book) extras.getSerializable("BOOK");
 			TextView view = (TextView) findViewById(R.id.titleView);
 			view.setText(book.toString());
 
@@ -87,6 +91,7 @@ public class BookActivity extends CBActivity {
 				 */
 				Chapter chapter = (Chapter) parent.getItemAtPosition(position);
 				intent.putExtra("CHAPTER", chapter);
+				intent.putExtra("BOOK", book);
 				startActivity(intent);
 			}
 
@@ -100,6 +105,14 @@ public class BookActivity extends CBActivity {
 		return true;
 	}
 
-	// add a line here
-
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_settings:
+			Toast.makeText(this, "menu in book", Toast.LENGTH_SHORT)
+					.show();
+			break;
+		}
+		return true;
+	}
 }

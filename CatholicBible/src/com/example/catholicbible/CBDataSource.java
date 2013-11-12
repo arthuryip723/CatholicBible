@@ -48,11 +48,13 @@ public class CBDataSource {
 
 	public List<Book> getOldTestament() {
 		List<Book> books = new ArrayList<Book>();
-		/*Cursor cursor = database.query("book", null, null, null, null, null,
-				null);*/
-		String[] args = {"1"};
-		Cursor cursor = database.query("book", null, "testament_id=?", args, null, null,
-				null);
+		/*
+		 * Cursor cursor = database.query("book", null, null, null, null, null,
+		 * null);
+		 */
+		String[] args = { "1" };
+		Cursor cursor = database.query("book", null, "testament_id=?", args,
+				null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			Book book = new Book(cursor.getInt(0), cursor.getString(1));
@@ -65,11 +67,13 @@ public class CBDataSource {
 
 	public List<Book> getNewTestament() {
 		List<Book> books = new ArrayList<Book>();
-		/*Cursor cursor = database.query("book", null, null, null, null, null,
-				null);*/
-		String[] args = {"2"};
-		Cursor cursor = database.query("book", null, "testament_id=?", args, null, null,
-				null);
+		/*
+		 * Cursor cursor = database.query("book", null, null, null, null, null,
+		 * null);
+		 */
+		String[] args = { "2" };
+		Cursor cursor = database.query("book", null, "testament_id=?", args,
+				null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			Book book = new Book(cursor.getInt(0), cursor.getString(1));
@@ -98,10 +102,13 @@ public class CBDataSource {
 				null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			/*Chapter chapter = new Chapter(cursor.getInt(0), cursor.getInt(2),
-					0, cursor.getString(1));*/
-			Chapter chapter = new Chapter(cursor.getInt(0), cursor.getInt(1),
-					cursor.getString(2), cursor.getInt(3));
+			/*
+			 * Chapter chapter = new Chapter(cursor.getInt(0), cursor.getInt(2),
+			 * 0, cursor.getString(1));
+			 */
+			Chapter chapter = new Chapter(cursor.getInt(0),
+					cursor.getString(1), cursor.getInt(2), cursor.getInt(3),
+					cursor.getCount());
 			chapters.add(chapter);
 			cursor.moveToNext();
 		}
@@ -113,7 +120,26 @@ public class CBDataSource {
 		return null;
 	}
 
-	public List<Verse> getVerses(int chapterId) {
+	public Chapter getChapterById(int id) {
+		return null;
+	}
+
+	public Chapter getChapterByBookIdAndChapterIndex(int bookId,
+			int chapterIndex) {
+		String[] args = { "" + bookId, "" + chapterIndex };
+		Cursor cursor = database.query("chapter", null,
+				"book_id=? AND number=?", args, null, null, null);
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Chapter chapter = new Chapter(cursor.getInt(0),
+					cursor.getString(1), cursor.getInt(2), cursor.getInt(3),
+					cursor.getCount());
+			return chapter;
+		}
+		return null;
+	}
+
+/*	public List<Verse> getVerses(int chapterId) {
 		// Mock some data here
 
 		// Verse v1 = new Verse(1, chapterId, 1, "Verse 1"); Verse v2 = new
@@ -126,8 +152,30 @@ public class CBDataSource {
 				null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			Verse verse = new Verse(cursor.getInt(0), cursor.getInt(2), 0,
-					cursor.getString(1));
+			Verse verse = new Verse(cursor.getInt(0), cursor.getString(1),
+					cursor.getInt(3), chapterId, 0);
+			verses.add(verse);
+			cursor.moveToNext();
+		}
+		cursor.close();
+		return verses;
+	}*/
+
+	public List<Verse> getVerses(Chapter chapter) {
+		// Mock some data here
+
+		// Verse v1 = new Verse(1, chapterId, 1, "Verse 1"); Verse v2 = new
+		// Verse(2, chapterId, 2, "Verse 2"); List<Verse> verses = new
+		// ArrayList<Verse>(); verses.add(v1); verses.add(v2); return verses;
+
+		List<Verse> verses = new ArrayList<Verse>();
+		String[] args = { "" + chapter.getId() };
+		Cursor cursor = database.query("verse", null, "chapter_id=?", args,
+				null, null, null);
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Verse verse = new Verse(cursor.getInt(0), cursor.getString(1),
+					cursor.getInt(3), chapter.getId(), chapter.getIndex());
 			verses.add(verse);
 			cursor.moveToNext();
 		}
@@ -135,11 +183,31 @@ public class CBDataSource {
 		return verses;
 	}
 
-	public List<Verse> getVerses(String bookName, int chapterNum) {
+	public List<Verse> getVerses(String bookName, int chapterIndex) {
 		return null;
 	}
 
-	public List<Verse> getVerses(int bookId, int chapterNum) {
+	public List<Verse> getVerses(int bookId, int chapterIndex) {
 		return null;
+	}
+
+	public Chapter getNextChapter(Chapter chapter) {
+		if (chapter.getIndex() < chapter.getMaxChapterIndexInBook()) {
+			int nextIndex = chapter.getIndex() + 1;
+			Chapter result = getChapterByBookIdAndChapterIndex(
+					chapter.getBookId(), nextIndex);
+			return result;
+		} else
+			return null;
+	}
+
+	public Chapter getPreviousChapter(Chapter chapter) {
+		if (chapter.getIndex() > 0) {
+			int nextIndex = chapter.getIndex() - 1;
+			Chapter result = getChapterByBookIdAndChapterIndex(
+					chapter.getBookId(), nextIndex);
+			return result;
+		} else
+			return null;
 	}
 }

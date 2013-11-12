@@ -3,13 +3,15 @@ package com.example.catholicbible;
 import java.io.Serializable;
 
 public class Verse implements Serializable{
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private int chapterId;
-	private int num;
+	private int chapterIndex;
+	private int index;
 	private String content;
 
 	public Verse() {
@@ -17,20 +19,21 @@ public class Verse implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Verse(int id, int chapterId, int num, String content) {
+	public Verse(int id, String content, int index, int chapterId, int chapterIndex) {
 		super();
 		this.id = id;
 		this.chapterId = chapterId;
-		this.num = num;
+		this.chapterIndex = chapterIndex;
+		this.index = index;
 		this.content = content;
 	}
 
-	public int getNum() {
-		return num;
+	public int getIndex() {
+		return index;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setIndex(int index) {
+		this.index = index;
 	}
 
 
@@ -57,9 +60,17 @@ public class Verse implements Serializable{
 	public void setChapterId(int chapterId) {
 		this.chapterId = chapterId;
 	}
+	
+	public int getChapterIndex() {
+		return chapterIndex;
+	}
+	
+	public void setChapterIndex(int chapterIndex) {
+		this.chapterIndex = chapterIndex;
+	}
 
 	@Override
 	public String toString() {
-		return content;
+		return chapterIndex + ":" + index + " " + content;
 	}
 }

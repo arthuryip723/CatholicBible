@@ -8,5 +8,7 @@
     <string name="chapters">Chapters</string>
     <string name="verses">Verses</string>
     <string name="catholic_bible">Catholic Bible</string>
+    <string name="prev">Prev</string>
+    <string name="next">Next</string>
 
 </resources>
