@@ -11,20 +11,28 @@ public class Chapter implements Serializable{
 	private int bookId;
 	private int index;
 	private String name;
-	private int maxChapterIndexInBook;
+//	private int maxChapterIndexInBook;
 
 	public Chapter() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Chapter(int id, String name, int index, int bookId, int maxChapterIndexInBook) {
+/*	public Chapter(int id, String name, int index, int bookId, int maxChapterIndexInBook) {
 		super();
 		this.id = id;
 		this.bookId = bookId;
 		this.index = index;
 		this.name = name;
 		this.maxChapterIndexInBook = maxChapterIndexInBook;
+	}*/
+	
+	public Chapter(int id, String name, int index, int bookId) {
+		super();
+		this.id = id;
+		this.bookId = bookId;
+		this.index = index;
+		this.name = name;
 	}
 
 	public int getId() {
@@ -63,11 +71,11 @@ public class Chapter implements Serializable{
 		this.index = index;
 	}
 	
-	public int getMaxChapterIndexInBook() {
+/*	public int getMaxChapterIndexInBook() {
 		return maxChapterIndexInBook;
 	}
 	
 	public void setMaxChapterIndexInBook(int maxChapterIndexInBook) {
 		this.maxChapterIndexInBook = maxChapterIndexInBook;
-	}
+	}*/
 }

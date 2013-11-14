@@ -107,8 +107,7 @@ public class CBDataSource {
 			 * 0, cursor.getString(1));
 			 */
 			Chapter chapter = new Chapter(cursor.getInt(0),
-					cursor.getString(1), cursor.getInt(2), cursor.getInt(3),
-					cursor.getCount());
+					cursor.getString(1), cursor.getInt(2), cursor.getInt(3));
 			chapters.add(chapter);
 			cursor.moveToNext();
 		}
@@ -132,8 +131,7 @@ public class CBDataSource {
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			Chapter chapter = new Chapter(cursor.getInt(0),
-					cursor.getString(1), cursor.getInt(2), cursor.getInt(3),
-					cursor.getCount());
+					cursor.getString(1), cursor.getInt(2), cursor.getInt(3));
 			return chapter;
 		}
 		return null;
