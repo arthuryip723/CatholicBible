@@ -32,7 +32,7 @@ public class CBDataSource {
 				null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			Book book = new Book(cursor.getInt(0), cursor.getString(1));
+			Book book = new Book(cursor.getInt(0), cursor.getString(1), cursor.getInt(2));
 			// cursor.getString(2);
 			books.add(book);
 			cursor.moveToNext();
@@ -57,7 +57,7 @@ public class CBDataSource {
 				null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			Book book = new Book(cursor.getInt(0), cursor.getString(1));
+			Book book = new Book(cursor.getInt(0), cursor.getString(1), cursor.getInt(2));
 			books.add(book);
 			cursor.moveToNext();
 		}
@@ -76,7 +76,7 @@ public class CBDataSource {
 				null, null, null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			Book book = new Book(cursor.getInt(0), cursor.getString(1));
+			Book book = new Book(cursor.getInt(0), cursor.getString(1), cursor.getInt(2));
 			books.add(book);
 			cursor.moveToNext();
 		}
@@ -191,8 +191,9 @@ public class CBDataSource {
 		return null;
 	}
 
-	public Chapter getNextChapter(Chapter chapter) {
-		if (chapter.getIndex() < chapter.getMaxChapterIndexInBook()) {
+	public Chapter getNextChapter(Chapter chapter, Book book) {
+//		if (chapter.getIndex() < chapter.getMaxChapterIndexInBook()) {
+		if (chapter.getIndex() < book.getNumOfChapters()) {
 			int nextIndex = chapter.getIndex() + 1;
 			Chapter result = getChapterByBookIdAndChapterIndex(
 					chapter.getBookId(), nextIndex);

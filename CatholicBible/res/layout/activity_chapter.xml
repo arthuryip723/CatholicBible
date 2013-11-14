@@ -33,17 +33,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/prev"/>
+            <TextView
+		        android:id="@+id/titleView"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/hello_world" />
             <Button 
                 android:id="@+id/nextBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/next"/>
-		    <TextView
-		        android:id="@+id/titleView"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:text="@string/hello_world" />
-	        <Button
+
+<!-- 	        <Button
 	            android:id="@+id/backToBooksBtn"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
@@ -53,7 +54,7 @@
 	            android:id="@+id/backToChaptersBtn"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:text="@string/chapters" />
+	            android:text="@string/chapters" /> -->
     	</LinearLayout>
     <!-- </RelativeLayout> -->
     

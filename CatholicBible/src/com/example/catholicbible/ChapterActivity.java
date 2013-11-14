@@ -48,7 +48,7 @@ public class ChapterActivity extends CBActivity {
 			// Set the verses to the view
 		}
 
-		Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);
+/*		Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);
 		backToBooksBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -66,7 +66,7 @@ public class ChapterActivity extends CBActivity {
 
 				// finish();
 			}
-		});
+		});*/
 		
 		Button prevBtn = (Button) findViewById(R.id.prevBtn);
 		prevBtn.setOnClickListener(new OnClickListener() {
@@ -95,7 +95,7 @@ public class ChapterActivity extends CBActivity {
 //				if (chapter.getIndex() < chapter.getMaxChapterIndexInBook()) {
 //					int nextIndex = chapter.getIndex() + 1;
 //					chapter = getDataSource().getChapterByBookIdAndChapterIndex(chapter.getBookId(), nextIndex);
-				Chapter tempChapter = getDataSource().getNextChapter(chapter);
+				Chapter tempChapter = getDataSource().getNextChapter(chapter, book);
 				if (tempChapter != null) {
 					chapter = tempChapter;
 					titleView.setText(book.toString() + " " + chapter.toString());
@@ -106,7 +106,7 @@ public class ChapterActivity extends CBActivity {
 			}
 		});
 
-		Button backToChaptersBtn = (Button) findViewById(R.id.backToChaptersBtn);
+/*		Button backToChaptersBtn = (Button) findViewById(R.id.backToChaptersBtn);
 		backToChaptersBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -114,7 +114,7 @@ public class ChapterActivity extends CBActivity {
 				// TODO Auto-generated method stub
 				finish();
 			}
-		});
+		});*/
 	}
 
 	@Override
