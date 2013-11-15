@@ -71,6 +71,6 @@ public class Verse implements Serializable{
 
 	@Override
 	public String toString() {
-		return chapterIndex + ":" + index + " " + content;
+		return index == 0 ? content : chapterIndex + ":" + index + " " + content;
 	}
 }
