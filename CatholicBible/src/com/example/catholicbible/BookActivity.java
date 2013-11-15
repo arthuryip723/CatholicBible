@@ -52,20 +52,20 @@ public class BookActivity extends CBActivity {
 			// Set onItemClick
 		}
 
-		Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);
+		/*Button backToBooksBtn = (Button) findViewById(R.id.backToBooksBtn);
 		backToBooksBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 
-				/*Intent intent = new Intent(BookActivity.this, MainActivity.class);
+				Intent intent = new Intent(BookActivity.this, MainActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intent);*/
+				startActivity(intent);
 
 				finish();
 			}
-		});
+		});*/
 
 		/*
 		 * gridView = (GridView) findViewById(R.id.chaptersGridView);
@@ -101,7 +101,7 @@ public class BookActivity extends CBActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.chapters, menu);
+		getMenuInflater().inflate(R.menu.book, menu);
 		return true;
 	}
 
@@ -111,6 +111,11 @@ public class BookActivity extends CBActivity {
 		case R.id.action_settings:
 			Toast.makeText(this, "menu in book", Toast.LENGTH_SHORT)
 					.show();
+			break;
+		case R.id.action_books:
+			finish();
+			break;
+		default:
 			break;
 		}
 		return true;

@@ -120,7 +120,7 @@ public class ChapterActivity extends CBActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.verses, menu);
+		getMenuInflater().inflate(R.menu.chapter, menu);
 		return true;
 	}
 	
@@ -131,6 +131,18 @@ public class ChapterActivity extends CBActivity {
 			Toast.makeText(this, "menu in chapter", Toast.LENGTH_SHORT)
 					.show();
 			break;
+	    case R.id.action_chapters:
+			finish();
+	        break;
+	    case R.id.action_books:
+			Intent intent = new Intent(getApplicationContext(),
+					MainActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+					| Intent.FLAG_ACTIVITY_SINGLE_TOP);
+			startActivity(intent);
+	        break;
+        default:
+        	break;
 		}
 		return true;
 	}
