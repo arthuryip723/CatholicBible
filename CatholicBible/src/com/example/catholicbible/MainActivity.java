@@ -37,12 +37,18 @@ public class MainActivity extends CBActivity {
 		 */
 
 		// List<Book> books = dataSource.getAllBooks();
-		List<Book> books = getDataSource().getAllBooks();
+		// List<Book> books = getDataSource().getAllBooks();
+		List<Book> ntBooks = getDataSource().getNewTestament();
 
-		ArrayAdapter<Book> adapter = new ArrayAdapter<Book>(this,
-				android.R.layout.simple_list_item_1, books);
+		/*ArrayAdapter<Book> adapter = new ArrayAdapter<Book>(this,
+				android.R.layout.simple_list_item_1, ntBooks);
 
-		ntView.setAdapter(adapter);
+		ntView.setAdapter(adapter);*/
+		
+		ArrayAdapter<Book> ntAdapter = new ArrayAdapter<Book>(this,
+				android.R.layout.simple_list_item_1, ntBooks);
+
+		ntView.setAdapter(ntAdapter);
 
 		ntView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -64,6 +70,46 @@ public class MainActivity extends CBActivity {
 			}
 
 		});
+		
+		otView = (GridView) findViewById(R.id.otGridView);
+
+		// Get the datasource
+		/*
+		 * if (dataSource == null) { dataSource = getDataSource(); }
+		 */
+		/**
+		 * Retrieve the books from the datasource. And put them in a collection.
+		 */
+
+		// List<Book> books = dataSource.getAllBooks();
+		List<Book> otBooks = getDataSource().getOldTestament();
+
+		ArrayAdapter<Book> otAdapter = new ArrayAdapter<Book>(this,
+				android.R.layout.simple_list_item_1, otBooks);
+
+		otView.setAdapter(otAdapter);
+
+		otView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View v,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				// Switch to another view
+				// Intent intent = new Intent(MainActivity.this,
+				// Chapters.class);
+				Intent intent = new Intent(getApplicationContext(),
+						BookActivity.class);
+				// intent.putExtra("BOOK", "Mathew");
+				// Object item = parent.getItemAtPosition(position);
+				// intent.putExtra("BOOK", item.toString());
+				Book book = (Book) parent.getItemAtPosition(position);
+				intent.putExtra("BOOK", book);
+				startActivity(intent);
+			}
+
+		});
+		
 //		ActionBar actionBar = getActionBar();
 //		actionBar.setSubtitle("mytest");
 //		actionBar.setTitle("vogella.com"); 

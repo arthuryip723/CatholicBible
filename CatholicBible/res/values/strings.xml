@@ -10,5 +10,7 @@
     <string name="catholic_bible">Catholic Bible</string>
     <string name="prev">Prev</string>
     <string name="next">Next</string>
+    <string name="old_testament">Old Testament</string>
+    <string name="new_testament">New Testament</string>
 
 </resources>
