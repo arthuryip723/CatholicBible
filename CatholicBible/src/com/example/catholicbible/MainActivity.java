@@ -10,9 +10,13 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.TabHost;
+import android.widget.TabHost.TabSpec;
 
 public class MainActivity extends CBActivity {
 	GridView ntView, otView;
+	TabHost tabHost;
+	TabSpec otTab, ntTab;
 
 	// private CBDataSource dataSource;
 
@@ -25,6 +29,20 @@ public class MainActivity extends CBActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		tabHost = (TabHost)findViewById(android.R.id.tabhost);
+		tabHost.setup();
+		/*TabSpec otTab = tabHost.newTabSpec("New Testament Tab");
+		TabSpec ntTab = tabHost.newTabSpec("Old Testament Tab");*/
+		otTab = tabHost.newTabSpec("New Testament Tab");
+		ntTab = tabHost.newTabSpec("Old Testament Tab");
+		
+		otTab.setIndicator(getString(R.string.new_testament));
+		ntTab.setIndicator(getString(R.string.old_testament));
+		otTab.setContent(R.id.otView);
+		ntTab.setContent(R.id.ntView);
+		tabHost.addTab(otTab);
+		tabHost.addTab(ntTab);
 
 		ntView = (GridView) findViewById(R.id.ntGridView);
 

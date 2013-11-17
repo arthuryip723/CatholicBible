@@ -31,7 +31,7 @@
                 android:id="@+id/prevBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/prev"/>
+                android:background="@drawable/ic_prev"/>
             <TextView
 		        android:id="@+id/titleView"
 		        android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                 android:id="@+id/nextBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/next"/>
+                android:background="@drawable/ic_next"/>
 
 <!-- 	        <Button
 	            android:id="@+id/backToBooksBtn"

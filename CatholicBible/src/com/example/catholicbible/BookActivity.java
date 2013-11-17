@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,9 +17,6 @@ import android.widget.Toast;
 public class BookActivity extends CBActivity {
 	GridView chaptersView;
 	Book book;
-
-	static final String[] chapters = new String[] { "chapter1", "chapter2",
-			"chapter3", "chapter4", "chapter5", "chapter6" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

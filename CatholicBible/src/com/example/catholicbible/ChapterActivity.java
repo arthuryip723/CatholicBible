@@ -82,6 +82,8 @@ public class ChapterActivity extends CBActivity {
 					List<Verse> verses = getDataSource().getVerses(chapter);
 					verseAdapter.clear();
 					verseAdapter.addAll(verses);
+//					versesView.smoothScrollToPosition(0);
+					versesView.setSelection(0);
 				}
 			}
 		});
@@ -102,6 +104,8 @@ public class ChapterActivity extends CBActivity {
 					List<Verse> verses = getDataSource().getVerses(chapter);
 					verseAdapter.clear();
 					verseAdapter.addAll(verses);
+//					versesView.smoothScrollToPosition(0);
+					versesView.setSelection(0);
 				}
 			}
 		});
