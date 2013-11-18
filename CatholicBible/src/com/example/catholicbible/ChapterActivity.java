@@ -19,7 +19,8 @@ public class ChapterActivity extends CBActivity {
 	TextView titleView;
 	Chapter chapter;
 	Book book;
-	ArrayAdapter<Verse> verseAdapter;
+//	ArrayAdapter<Verse> verseAdapter;
+	VerseAdapter<Verse> verseAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,9 @@ public class ChapterActivity extends CBActivity {
 //			ArrayAdapter<Verse> adapter = new ArrayAdapter<Verse>(this,
 //					android.R.layout.simple_list_item_1, verses);
 //			versesView.setAdapter(adapter);
-			verseAdapter = new ArrayAdapter<Verse>(this,
+			/*verseAdapter = new ArrayAdapter<Verse>(this,
+					android.R.layout.simple_list_item_1, verses);*/
+			verseAdapter = new VerseAdapter<Verse>(this,
 					android.R.layout.simple_list_item_1, verses);
 			versesView.setAdapter(verseAdapter);
 			// Set the verses to the view

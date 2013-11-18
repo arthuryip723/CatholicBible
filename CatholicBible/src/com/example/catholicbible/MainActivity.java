@@ -37,8 +37,8 @@ public class MainActivity extends CBActivity {
 		otTab = tabHost.newTabSpec("New Testament Tab");
 		ntTab = tabHost.newTabSpec("Old Testament Tab");
 		
-		otTab.setIndicator(getString(R.string.new_testament));
-		ntTab.setIndicator(getString(R.string.old_testament));
+		otTab.setIndicator(getString(R.string.old_testament));
+		ntTab.setIndicator(getString(R.string.new_testament));
 		otTab.setContent(R.id.otView);
 		ntTab.setContent(R.id.ntView);
 		tabHost.addTab(otTab);
