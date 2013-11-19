@@ -30,7 +30,8 @@ public class VerseAdapter<T> extends ArrayAdapter<T> {
 		Verse verse = (Verse)getItem(position);
 		if (verse.getIndex() == 0)
 			textView.setTextColor(Color.RED);
-		
+		else
+			textView.setTextColor(Color.WHITE);
 		return result;
 	}
 	
