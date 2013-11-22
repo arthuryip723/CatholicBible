@@ -173,7 +173,7 @@ public class CBDataSource {
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			Verse verse = new Verse(cursor.getInt(0), cursor.getString(1),
-					cursor.getInt(3), chapter.getId(), chapter.getIndex());
+					cursor.getInt(2), chapter.getId(), chapter.getIndex());
 			verses.add(verse);
 			cursor.moveToNext();
 		}
