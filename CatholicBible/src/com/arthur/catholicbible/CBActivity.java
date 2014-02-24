@@ -1,4 +1,4 @@
-package com.example.catholicbible;
+package com.arthur.catholicbible;
 
 import android.app.Activity;
 

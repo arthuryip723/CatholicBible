@@ -1,4 +1,4 @@
-package com.example.catholicbible;
+package com.arthur.catholicbible;
 
 import java.util.ArrayList;
 import java.util.List;
