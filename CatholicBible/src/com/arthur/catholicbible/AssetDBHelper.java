@@ -6,7 +6,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class AssetDBHelper extends SQLiteAssetHelper {
 	private static final String DATABASE_NAME = "CatholicBible";
-	private static final int DATABASE_VERSION = 11;
+	private static final int DATABASE_VERSION = 12;
 
 	public AssetDBHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -16,7 +16,7 @@ public class AssetDBHelper extends SQLiteAssetHelper {
 		 * set to the same the DAVABASE_VERSION and the parameter of
 		 * setForceUpgradedVersion(), and make them increment to upgrade db.
 		 */
-		setForcedUpgradeVersion(11);
+		setForcedUpgradeVersion(12);
 		// TODO Auto-generated constructor stub
 	}
 
